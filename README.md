@@ -1,3 +1,23 @@
+# Prerequisite
+Before start, you must have git already installed on your machine.
+On Ubuntu >= 18, just type:
+```bash
+sudo apt-get update
+sudo apt-get install git-all
+```
+On Windows, please install via [installer](https://git-scm.com/download/win) 
+# Init working directory
+You can download source code via command
+```bash
+git clone https://github.com/Thai-Ngo/GitWorkshop.git
+```Or just download source code as zip file
+
+# Init
+If you download source code via `git clone`, your working directory is already haved a `.git` folder.
+Otherwise, you must init `.git` via command
+```bash
+git init
+```
 1. Download public reposition with zip file. This zip file contain main.cpp file and README.md file.
 	- The main.cpp file contain two important function (factorial and sumOfArr)
 	- The REAME.md file contain instructions that you must follow during our Workshop.
