@@ -4,12 +4,6 @@ using namespace std;
 
 int factorial(int num) {
 	// TODO 
-	if (num < 2) {
-		return 1;
-	}
-	else {
-		return num * factorial(num - 1);
-	}
 }
 
 int sumOfArr(int* arr, int size) {
