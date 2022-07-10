@@ -8,11 +8,12 @@ int factorial(int num) {
 
 int sumOfArr(int* arr, int size) {
 	// TODO
-	int result = 0;
-	for (int idx = 0; idx < size; idx++) {
-		result += arr[idx];
+	if (size == 0) {
+		return 0;
 	}
-	return result;
+	else {
+		return arr[size - 1] + sumOfArr(arr, size - 1);
+	}
 }	
 
 int main() {
