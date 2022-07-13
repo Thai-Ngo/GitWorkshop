@@ -38,42 +38,83 @@ To save all staged changes:
 git commit -m "<some_description>"
 ```
 
-# Implement somethings
+# Save working on a branch without commit
 Change logic of function `sumOfArr` from recursive version to non-recursive version (using for loop).
-<!-- 4. Change the content of the sumOfArr function for non-recursion version of this function. -->
+See current status: 
+```bash
+git status
+```
+Save changes and push to a stack:
+```bash
+git stash
+```
+# Git branch
+To see list of local branches:
+```bash
+git branch
+```
+Create a new branch with name:
+```bash
+git branch <new_branch_name>
+```
+Switch to an existed branch:
+```bash
+git checkout <existed_branch_name>
+```
+Create and switch to a new branch:
+```bash
+git checkout -b <new_branch_name>
+```
 
-??????
-   Type command:
-    git status
-    git stash
-5. Type command:
-	git branch
-	git branch dev
-	git branch
-	git checkout dev
-   Implement factorial function with non-recursion version.
-   Type command:
-    git add main.cpp
-    git commit -m "DEV: Implementation factorial function in non-recursion style"
-   Then, type command:
-    git checkout main
-    git merge
-6. Type command:
-    git checkout dev
-   Implement factorial function with recursion version.
-   Type command:
-    git add main.cpp
-    git commit -m "DEV: Implementation factorial function in recursion style"
-7. Change the content in factorial function (example: print result before return)
-   Type command:
-    git checkout main
-    git add main.cpp
-    git commit -m "MAIN: Print result before return in factioral function"
-   Type command
-    git merge
-8. Fix conflict in main.cpp by delete all the main branch content in factorial function
-   Type command:
-    git add main.cpp
-    git commit -m "MAIN: Fix conflict in factorial function"
-9. Type command:
-    git log
+In this example, you will create a branch named `dev`.
+# Merging
+## Fast-forward merge
+Implement factorial function with non-recursion version. Notice that you are on `dev` branch.
+Then run the following commands:
+```bash
+git add main.cpp
+git commit -m "DEV: Implementation factorial function in non-recursion style"
+```
+Return `main` branch and merge `dev` branch:
+```bash
+git checkout main
+git merge
+```
+
+## Three-way merge
+Now you should checkout `dev` branch:
+```bash
+git checkout dev
+```
+After that, modify somethings (ex, reimplementing with recursion version ...) in `factorial` function.
+Type following commands to commit changes:
+```bash
+git add main.cpp
+git commit -m "DEV: Implementation factorial function in recursion style"
+```
+
+Return branch `main`, modify somethings (ex, print result before return ...) and commit changes in branch `main`
+```bash
+git checkout main
+```
+
+```bash
+git add main.cpp
+git commit -m "MAIN: Print result before return in factioral function"
+```
+
+Finally, merge `dev` branch to `main` branch:
+```bash
+git merge
+```
+
+Now, you can see some conflicts in your `main.cpp` file. Fix conflicts manually.
+In three-way merging, you must create a new commit to apply merge result:
+```bash
+git add main.cpp
+git commit -m "MAIN: Fix conflict in factorial function"
+```
+# Check your local git's history graph    
+```bash
+git log --graph
+```
